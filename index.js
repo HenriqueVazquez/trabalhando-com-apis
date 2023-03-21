@@ -7,10 +7,10 @@ app.listen('3000');
 //Middleware
 app.use(express.json());
 
-let author = "Henrique";
 
-app.route('/:identificador').delete((req, res) => {
-  author = "";
-  res.send("Apagado! " + req.params.identificador);
-});
+app.route('/').get((req, res) => res.send(req.query.name));
+
+app.route('/').post((req, res) => res.send(req.body));
+
+app.route('/:parametro').get((req, res) => res.send(req.params.parametro));
 
