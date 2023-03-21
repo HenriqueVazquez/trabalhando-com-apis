@@ -7,11 +7,11 @@ app.listen('3000');
 //Middleware
 app.use(express.json());
 
+app.route('/').get((req, res) => res.send("oi"));
 
-app.route('/').post((req, res) => {
-  const { nome, livrosFavoritos } = req.body;
-  res.send(`Meu nome é ${nome}, e gosto dos livros ${livrosFavoritos}`);
-});
+app.route('/:variavel').get((req, res) => res.send(req.params.variavel));
+
+app.route('/identidade/:nome').get((req, res) => res.send(req.params.nome));
 
 
 
