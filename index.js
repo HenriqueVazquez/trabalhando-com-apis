@@ -7,11 +7,9 @@ app.listen('3000');
 //Middleware
 app.use(express.json());
 
-app.route('/').get((req, res) => res.send("oi"));
+app.route('/').get((req, res) => res.send(req.query.name));
 
-app.route('/:variavel').get((req, res) => res.send(req.params.variavel));
-
-app.route('/identidade/:nome').get((req, res) => res.send(req.params.nome));
+app.route('/about/user').get((req, res) => res.send(req.query));
 
 
 
